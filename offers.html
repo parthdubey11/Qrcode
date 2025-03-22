@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="offers.css">
+    <title>Special Offers</title>
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to <b>DineFlow</b></h1>
+        <h1>Special Offers</h1>
+    </header>
+    
+    <main>
+        <h2>Limited Time Offers</h2>
+        <div class="slider">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <img src="discount.webp" alt="Weekend Special">
+                    <h3>Weekend Special</h3>
+                    <p>Get 20% off on all seafood dishes this weekend!</p>
+                </div>
+                <div class="slide">
+                    <img src="familyfeast.jpg" alt="Family Feast">
+                    <h3>Family Feast</h3>
+                    <p>Order a family combo and get a free dessert!</p>
+                </div>
+                <div class="slide">
+                    <img src="happyhour.jpg" alt="Happy Hour">
+                    <h3>Happy Hour</h3>
+                    <p>Buy one get one free on all mocktails from 4 PM - 6 PM.</p>
+                </div>
+               
+            </div>
+        </div>
+        <div class="controls">
+            <button class="control-btn" onclick="prevSlide()">&#10094; Prev</button>
+            <button class="control-btn" onclick="nextSlide()">Next &#10095;</button>
+        </div>
+    </main>
+    
+    <footer>
+        <div>
+            &copy; 2025 DineFlow | All Rights Reserved
+        </div>
+        <div>
+            Created by- <b>Parth Dubey</b>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        function showSlide(index) {
+            const slides = document.getElementById("slides");
+            const totalSlides = document.querySelectorAll(".slide").length;
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+    </script>
+</body>
+</html>
